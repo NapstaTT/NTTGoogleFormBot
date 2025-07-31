@@ -1,1 +1,1 @@
-TOKEN='Yout token must be here'
+TOKEN='Your token must be here'

@@ -1,9 +1,11 @@
 from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import Message
+from aiogram.fsm.context import FSMContext
 
 from keyboards import reply as rkb
-from BD import requests as rq
+from DB import requests as rq
+from FSM.states import UserStates
 
 router = Router()
 

@@ -5,13 +5,12 @@ from aiogram.fsm.context import FSMContext
 
 from keyboards import reply as rkb
 from DB import requests as rq
-from FSM.states import UserStates
 
 router = Router()
 
 help_message='''
 /start - начало работы
-/help - вывести список команд
+/help - вывести список команд 
 /description - описание бота
 '''
 
@@ -26,15 +25,15 @@ async def cmd_start(message: Message):
     await message.delete()
 
 
-@router.message(F.text == 'Помощь' or '/help')
+@router.message('/help')
 async def cmd_help(message: Message):
-    await message.answer(help_message)
     await message.delete()
+    await message.answer(help_message)
 
-@router.message(F.text == 'Мои формы' or '/my_forms')
+@router.message(Command('my_forms'))
 async def myforms(mesage: Message):
     pass
 
-@router.message(F.text == 'Статистика' or '/stats')
+@router.message(Command('stats'))
 async def statsofform(mesage: Message):
     pass

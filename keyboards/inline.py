@@ -11,7 +11,8 @@ def confirm_Q_keyboard():
     return InlineKeyboardMarkup(inline_keyboard=[
         [
             InlineKeyboardButton(text="✅ Подтвердить", callback_data="Q_confirm"),
-            InlineKeyboardButton(text="❌ Отменить", callback_data="Q_cancel")
+            InlineKeyboardButton(text="❌ Отменить", callback_data="Q_cancel"),
+            InlineKeyboardButton(text="⛔ Отменить создание формы", callback_data="FCANCEL")
         ]
     ])
 def type_of_question_keyboard():
@@ -43,5 +44,11 @@ def confirm_option_keyboard():
         [
             InlineKeyboardButton(text="✅ Подтвердить", callback_data="title_confirm"),
             InlineKeyboardButton(text="❌ Отменить", callback_data="title_cancel")
+        ]
+    ])
+def finish_form():
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Завершить создание формы", callback_data="finishF")
         ]
     ])

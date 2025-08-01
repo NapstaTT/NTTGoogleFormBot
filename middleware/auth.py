@@ -5,7 +5,7 @@ from DB.requests import checkgoogle
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 class AuthMiddleware(BaseMiddleware):
-    ACTIONS = ("/create_form", "/my_forms", "/stats", "создать Форму", "мои Формы", "статистика")
+    ACTIONS = ("создать Форму", "мои Формы", "статистика")
 
     async def __call__(
             self,
@@ -37,6 +37,6 @@ class AuthMiddleware(BaseMiddleware):
                             reply_markup=InlineKeyboardMarkup(inline_keyboard=[
                             [InlineKeyboardButton(
                 text="Авторизоваться через мини-приложение",
-                url="https://t.me/GoogleForm_NTT_bot/GFNapstasAUTHAPP"  # Замените на реальный URL
+                url="https://t.me/GoogleForm_NTT_bot/GFNapstasAUTHAPP"
             )]
         ]))

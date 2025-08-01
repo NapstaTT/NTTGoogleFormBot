@@ -56,13 +56,11 @@ async def settingT(message: Message, state: FSMContext): #Обработка т�
         questionTy=new_questionTy
     )
     await state.set_state(UserStates.sureQ)
-    data = await state.get_data()
     question_titles = data["questionTi"]
-    question_types = data["questionTy"]
     current_index = data["index"]
     last_question_index = current_index
     question_title = question_titles[last_question_index]
-    question_type = question_types[last_question_index]
+    question_type = new_questionTy[last_question_index]
     await message.reply(
         f"Подтвердите создание вопроса:\n\n"
         f"📝 Название: {question_title}\n"
@@ -90,7 +88,7 @@ async def Qcancel(callback: CallbackQuery, state: FSMContext): #Обработк
 @crouter.callback_query(F.data == "Q_confirm")
 async def Qconfirm(callback: CallbackQuery, state: FSMContext): #Обработка отмены текущего вопроса
     data = await state.get_data()
-    new_index = int(data["index"])+1
+    new_index = data["index"]+1
     await state.update_data(
         index=str(new_index)
     )
